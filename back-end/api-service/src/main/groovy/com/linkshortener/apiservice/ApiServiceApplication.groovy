@@ -1,4 +1,4 @@
-package com.buuufy.apiservice
+package com.linkshortener.apiservice
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
