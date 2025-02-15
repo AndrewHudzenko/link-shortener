@@ -1,6 +1,6 @@
 package com.linkshortener.apiservice.annotation
 
-import com.linkshortener.apiservice.data.model.UrlMapping
+import com.linkshortener.apiservice.data.model.Url
 import com.linkshortener.apiservice.exception.AppException
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
@@ -28,7 +28,7 @@ import java.lang.annotation.Target
                 description = "Short link successfully created",
                 content = @Content(
                         mediaType = "application/json",
-                        schema = @Schema(implementation = UrlMapping)
+                        schema = @Schema(implementation = Url)
                 )
         ),
         @ApiResponse(
