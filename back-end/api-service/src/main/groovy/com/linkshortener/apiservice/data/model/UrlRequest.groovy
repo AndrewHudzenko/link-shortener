@@ -6,5 +6,5 @@ import org.hibernate.validator.constraints.URL
 class UrlRequest {
     @NotBlank(message = "URL cannot be empty")
     @URL(message = "Invalid URL format")
-    private String url
+    String url
 }
