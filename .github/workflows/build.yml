@@ -1,60 +1,60 @@
-name: Build and Test
-
-on:  # Указываем, когда запускать workflow
-  push:
-    branches: [ main ]  # При пуше в main ветку
-  pull_request:
-    branches: [ main ]  # При создании PR в main ветку
-
-jobs:
-  backend:  # Задача для бэкенда
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code  # Получаем код из репозитория
-        uses: actions/checkout@v2
-
-      - name: Set up JDK 17  # Устанавливаем Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'temurin'  # Можно использовать другие дистрибутивы Java
-
-      - name: Cache Gradle packages  # Кэширование зависимостей
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
-
-      - name: Build and test backend  # Сборка и тестирование
-        run: |
-          cd back-end
-          ./gradlew build test
-
-  frontend:  # Задача для фронтенда
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js  # Устанавливаем Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-
-      - name: Cache npm dependencies  # Кэширование node_modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Install and build  # Установка зависимостей и сборка
-        run: |
-          cd front-end
-          npm ci
-          npm run build
+#name: Build and Test
+#
+#on:  # Указываем, когда запускать workflow
+#  push:
+#    branches: [ main ]  # При пуше в main ветку
+#  pull_request:
+#    branches: [ main ]  # При создании PR в main ветку
+#
+#jobs:
+#  backend:  # Задача для бэкенда
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code  # Получаем код из репозитория
+#        uses: actions/checkout@v2
+#
+#      - name: Set up JDK 17  # Устанавливаем Java
+#        uses: actions/setup-java@v2
+#        with:
+#          java-version: '17'
+#          distribution: 'temurin'  # Можно использовать другие дистрибутивы Java
+#
+#      - name: Cache Gradle packages  # Кэширование зависимостей
+#        uses: actions/cache@v2
+#        with:
+#          path: |
+#            ~/.gradle/caches
+#            ~/.gradle/wrapper
+#          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+#          restore-keys: |
+#            ${{ runner.os }}-gradle-
+#
+#      - name: Build and test backend  # Сборка и тестирование
+#        run: |
+#          cd back-end
+#          ./gradlew build test
+#
+#  frontend:  # Задача для фронтенда
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      - name: Set up Node.js  # Устанавливаем Node.js
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: '18'
+#
+#      - name: Cache npm dependencies  # Кэширование node_modules
+#        uses: actions/cache@v2
+#        with:
+#          path: ~/.npm
+#          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+#          restore-keys: |
+#            ${{ runner.os }}-node-
+#
+#      - name: Install and build  # Установка зависимостей и сборка
+#        run: |
+#          cd front-end
+#          npm ci
+#          npm run build

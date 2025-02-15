@@ -1,38 +1,38 @@
-name: Deploy
-
-on:
-  push:
-    branches: [ main ]  # Деплоим только при пуше в main
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Сборка и деплой бэкенда на Render
-      - name: Deploy to Render
-        env:
-          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
-        run: |
-          curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
-          -H "Authorization: Bearer $RENDER_API_KEY"
-
-      # Деплой фронтенда на GitHub Pages
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '18'
-
-      - name: Install and build frontend
-        run: |
-          cd front-end
-          npm ci
-          npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./front-end/build
+#name: Deploy
+#
+#on:
+#  push:
+#    branches: [ main ]  # Деплоим только при пуше в main
+#
+#jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v2
+#
+#      # Сборка и деплой бэкенда на Render
+#      - name: Deploy to Render
+#        env:
+#          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+#        run: |
+#          curl -X POST https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys \
+#          -H "Authorization: Bearer $RENDER_API_KEY"
+#
+#      # Деплой фронтенда на GitHub Pages
+#      - name: Setup Node.js
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: '18'
+#
+#      - name: Install and build frontend
+#        run: |
+#          cd front-end
+#          npm ci
+#          npm run build
+#
+#      - name: Deploy to GitHub Pages
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          publish_dir: ./front-end/build
