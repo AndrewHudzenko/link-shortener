@@ -1,0 +1,88 @@
+/* LinkShortener.css */
+
+.link-shortener {
+    min-height: 100vh; /* Минимальная высота экрана, чтобы контент всегда был внизу. 100vh - это 100% высоты экрана. То есть, если контента меньше, чем высота экрана, то он будет внизу. */
+    display: flex; /* Делаем flex-контейнер - все дочерние элементы будут располагаться в строку */
+    justify-content: center; /* Выравниваем дочерние элементы по центру по горизонтали */
+    align-items: flex-start; /* Выравниваем дочерние элементы по верхнему краю по вертикали */
+    padding: 2rem 1rem; /* Внешний отступ сверху и снизу 2rem, слева и справа 1rem. rem - это единица измерения, которая зависит от размера шрифта. To есть, 1rem - это 16px, 2rem - это 32px и т.д. потому что у нас шрифт 16px. */
+    margin-top: 10rem;
+}
+
+.link-shortener__container {
+    width: 100%; /* Ширина блока 100%, то есть занимает всю ширину экрана */
+    max-width: 35rem; /* Максимальная ширина блока 600px */
+    padding: 2rem;
+
+}
+
+.link-shortener__icon {
+    display: block; /* Блочный элемент */
+    margin: 0 auto;
+    width: 4rem;
+    height: 4rem;
+    color: #646cff;
+}
+
+.link-shortener__title {
+    margin: 0 0 1rem; /* Внешний отступ снизу 1rem */
+    text-align: center;
+    color: #bcc3cd;
+    font-size: 2rem; /* Размер шрифта 2rem */
+    font-weight: 700; /* Жирный шрифт */
+}
+
+.link-shortener__description {
+    text-align: center;
+    color: #bcc3cd;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+
+.link-shortener__error {
+    background-color: #fee2e2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    color: #dc2626;
+    text-align: center;
+}
+
+.link-shortener__result {
+    margin-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+}
+
+/* Медиа-запросы для адаптивности */
+@media (max-width: 640px) {
+    .link-shortener {
+        padding: 1rem;
+    }
+
+    .link-shortener__container {
+        padding: 1.5rem;
+    }
+
+    .link-shortener__title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Анимация появления для результата */
+.link-shortener__result {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

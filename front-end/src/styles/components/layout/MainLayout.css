@@ -1,0 +1,14 @@
+/* src/styles/components/layout/MainLayout.css */
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.layout__main {
+    flex: 1;
+    margin-top: 64px; /* Высота header */
+    margin-bottom: 64px; /* Высота footer */
+    padding: 2rem 1rem;
+}
