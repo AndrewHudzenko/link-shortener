@@ -2,14 +2,17 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# Копируем только необходимые файлы из api-service
-COPY api-service .
+# Копируем весь проект, так как gradlew находится в корне back-end
+COPY . .
 
-# Даем права на выполнение gradlew
-RUN chmod +x ./gradlew
+# Переходим в директорию api-service
+WORKDIR /app/api-service
 
-# Собираем приложение
-RUN ./gradlew build -x test
+# Даем права на выполнение gradlew (используем путь к файлу в родительской директории)
+RUN chmod +x ../gradlew
+
+# Собираем приложение используя gradlew из родительской директории
+RUN ../gradlew build -x test
 
 # Команда для запуска приложения
 CMD ["java", "-jar", "build/libs/api-service-0.0.1-SNAPSHOT.jar"]
