@@ -8,15 +8,17 @@ import org.springframework.data.annotation.Version
 import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.Document
 
+import java.time.LocalDateTime
+
 @ToString
 @Document(collection = "Url")
 class Url {
     @Id
     String id
     @CreatedDate
-    Date createdDate
+    LocalDateTime createdDateTime
     @LastModifiedDate
-    Date lastModifiedDate
+    LocalDateTime lastModifiedDateTime
     @Version
     Long version
     @Indexed(unique = true)
