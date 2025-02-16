@@ -24,7 +24,7 @@ class UrlController {
         this.urlService = urlService
     }
 
-    @OpenApiCreateShortLink
+//    @OpenApiCreateShortLink
     @PostMapping("/shorten")
     ResponseEntity<Url> shortenUrl(@RequestBody @Valid UrlRequest request) {
         Url url = urlService.createShortUrl(request.url)
