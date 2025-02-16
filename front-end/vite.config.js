@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/link-shortener/front-end/',
+  base: '/link-shortener/',
   build: {
     outDir: 'dist',
   }
