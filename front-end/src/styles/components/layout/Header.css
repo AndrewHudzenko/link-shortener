@@ -32,10 +32,15 @@
     color: #646cff;
 }
 
+.header__logo-link {
+    padding-top: 0.3rem;
+}
+
 .header__logo-text {
     font-size: 1.25rem;
     font-weight: 600;
     color: #bcc3cd;
+    text-decoration: none;
 }
 
 .header__nav {
