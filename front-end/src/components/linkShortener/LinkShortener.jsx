@@ -2,6 +2,7 @@ import {useState} from 'react';
 import {LinkShortenerForm} from './LinkShortenerForm';
 import '../../styles/components/linkShortener/LinkShortener.css';
 import {Link2} from 'lucide-react';
+import { API_URL } from '../../config';
 
 export const LinkShortener = () => {
     const [shortenedLink, setShortenedLink] = useState(null);
@@ -13,7 +14,7 @@ export const LinkShortener = () => {
         setError(null);
 
         try {
-            const response = await fetch('http://localhost:8080/shorten', {
+            const response = await fetch(`${API_URL}/api/shorten`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
