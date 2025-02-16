@@ -1,0 +1,14 @@
+/.idea/
+/files/
+
+# Backend
+back-end/.gradle/
+back-end/build/
+back-end/*.iml
+
+# Frontend
+front-end/node_modules/
+front-end/build/
+front-end/.env
+front-end/.env.local
+front-end/dist/
