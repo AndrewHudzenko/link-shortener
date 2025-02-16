@@ -35,7 +35,7 @@ export const LinkShortener = () => {
 
             const data = await response.json();
             // Формируем полный URL для короткой ссылки
-            const shortUrl = `http://localhost:8080/${data.shortCode}`;
+            const shortUrl = `${API_URL}/${data.shortCode}`;
             setShortenedLink(shortUrl);
         } catch (err) {
             setError('Произошла ошибка при сокращении ссылки: ' + err.message);
