@@ -29,6 +29,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x back-end/gradlew
+
       - name: Build and test backend  # Сборка и тестирование
         run: |
           cd back-end
