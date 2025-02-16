@@ -20,5 +20,5 @@ cd back-end
 cd front-end
 npm start
 ```
-![Build Status](https://github.com/username/repo/workflows/Build%20and%20Test/badge.svg)
-![Deploy Status](https://github.com/username/repo/workflows/Deploy/badge.svg)
+![Build Status](https://github.com/andrewhudzenko/link-shortener/workflows/Build%20and%20Test/badge.svg)
+![Deploy Status](https://github.com/andrewhudzenko/link-shortener/workflows/Deploy/badge.svg)
