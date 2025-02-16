@@ -22,3 +22,4 @@ npm start
 ```
 ![Build Status](https://github.com/andrewhudzenko/link-shortener/workflows/Build%20and%20Test/badge.svg)
 ![Deploy Status](https://github.com/andrewhudzenko/link-shortener/workflows/Deploy/badge.svg)
+
