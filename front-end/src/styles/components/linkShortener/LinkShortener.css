@@ -1,12 +1,20 @@
 /* LinkShortener.css */
 
 .link-shortener {
-    min-height: 100vh; /* Минимальная высота экрана, чтобы контент всегда был внизу. 100vh - это 100% высоты экрана. То есть, если контента меньше, чем высота экрана, то он будет внизу. */
-    display: flex; /* Делаем flex-контейнер - все дочерние элементы будут располагаться в строку */
-    justify-content: center; /* Выравниваем дочерние элементы по центру по горизонтали */
-    align-items: flex-start; /* Выравниваем дочерние элементы по верхнему краю по вертикали */
-    padding: 2rem 1rem; /* Внешний отступ сверху и снизу 2rem, слева и справа 1rem. rem - это единица измерения, которая зависит от размера шрифта. To есть, 1rem - это 16px, 2rem - это 32px и т.д. потому что у нас шрифт 16px. */
-    margin-top: 10rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+    margin-top: 5rem;
+}
+
+.link-shortener__content {
+    width: 100%;
+    max-width: 35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .link-shortener__container {

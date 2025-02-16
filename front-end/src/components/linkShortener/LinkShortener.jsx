@@ -2,7 +2,8 @@ import {useState} from 'react';
 import {LinkShortenerForm} from './LinkShortenerForm';
 import '../../styles/components/linkShortener/LinkShortener.css';
 import {Link2} from 'lucide-react';
-import { API_URL } from '../../config';
+import {API_URL} from '../../config';
+import {About} from './About'; // Add this import
 
 export const LinkShortener = () => {
     const [shortenedLink, setShortenedLink] = useState(null);
@@ -20,7 +21,7 @@ export const LinkShortener = () => {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 },
-                body: JSON.stringify({ url: url }) // Отправляем URL в теле запроса
+                body: JSON.stringify({url: url}) // Отправляем URL в теле запроса
             });
 
             if (response.status === 400) {
@@ -46,24 +47,27 @@ export const LinkShortener = () => {
 
     return (
         <div className="link-shortener">
-            <div className="link-shortener__container">
-                <Link2 className="link-shortener__icon"/>
-                <h1 className="link-shortener__title">Сократите вашу ссылку</h1>
-                <div className="link-shortener__description">
-                    Введите длинную ссылку и получите её короткую версию
-                </div>
-
-                <LinkShortenerForm
-                    onSubmit={handleSubmit}
-                    isLoading={isLoading}
-                    shortenedLink={shortenedLink}
-                />
-
-                {error && (
-                    <div className="link-shortener__error">
-                        {error}
+            <div className="link-shortener__content">
+                <div className="link-shortener__container">
+                    <Link2 className="link-shortener__icon"/>
+                    <h1 className="link-shortener__title">Сократите вашу ссылку</h1>
+                    <div className="link-shortener__description">
+                        Введите длинную ссылку и получите её короткую версию
                     </div>
-                )}
+
+                    <LinkShortenerForm
+                        onSubmit={handleSubmit}
+                        isLoading={isLoading}
+                        shortenedLink={shortenedLink}
+                    />
+
+                    {error && (
+                        <div className="link-shortener__error">
+                            {error}
+                        </div>
+                    )}
+                </div>
+                <About />
             </div>
         </div>
     );

@@ -1,0 +1,88 @@
+/* About.css */
+
+.about__container {
+    width: 100%;
+    max-width: none; /* Убираем max-width, так как он уже задан в родителе */
+    background: #2c2e35;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    padding: 1.5rem;
+}
+
+.about {
+    padding: 0; /* Убираем padding */
+    display: block; /* Меняем на block */
+}
+
+.about__title {
+    color: #bcc3cd;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.about__description {
+    color: #bcc3cd;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.about__author {
+    margin-left: 0.5rem; /* Добавляем отступ после "от" */
+    color: #646cff; /* Используем основной цвет акцента */
+    text-decoration: none; /* Убираем подчеркивание */
+    transition: color 0.2s ease; /* Добавляем плавный переход */
+}
+
+.about__author:hover {
+    color: #5753e4; /* Цвет при наведении */
+}
+
+/* Убираем фиолетовый цвет для посещенных ссылок */
+.about__author:visited {
+    color: #646cff;
+}
+
+.about__author:visited:hover {
+    color: #5753e4;
+}
+
+.about__links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.about__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #bcc3cd;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid #646cff;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.about__link:hover {
+    background-color: #646cff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+    .about__links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .about__link {
+        justify-content: center;
+    }
+}
+
+ó
