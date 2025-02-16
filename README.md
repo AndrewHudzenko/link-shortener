@@ -1,9 +1,13 @@
 # URL Shortener 🔗
 
+https://andrewhudzenko.github.io/link-shortener/
+
 [![Build and Test](https://img.shields.io/badge/Build%20and%20Test-passing-brightgreen)](https://github.com/andrewhudzen/link-shortener)
 [![Deploy](https://img.shields.io/badge/Deploy-passing-brightgreen)](https://github.com/andrewhudzen/link-shortener)
 
 Full-stack приложение для сокращения длинных URL-адресов в короткие, удобные для использования ссылки.
+
+## 📸 Превью
 
 ![URL Shortener Preview](static/img.png)
 
