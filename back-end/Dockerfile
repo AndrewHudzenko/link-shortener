@@ -2,17 +2,20 @@ FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-# Копируем весь проект, так как gradlew находится в корне back-end
+# Копируем весь проект
 COPY . .
 
 # Переходим в директорию api-service
 WORKDIR /app/api-service
 
-# Даем права на выполнение gradlew (используем путь к файлу в родительской директории)
+# Даем права на выполнение gradlew
 RUN chmod +x ../gradlew
 
-# Собираем приложение используя gradlew из родительской директории
+# Собираем приложение
 RUN ../gradlew build -x test
 
-# Команда для запуска приложения
-CMD ["java", "-jar", "build/libs/api-service-0.0.1-SNAPSHOT.jar"]
+# Проверяем созданный JAR файл (обратите внимание на измененный путь)
+RUN ls -la ../build/libs/
+
+# Команда для запуска приложения (используем правильный путь к JAR)
+CMD ["java", "-jar", "/app/build/libs/api-service-0.0.1-SNAPSHOT.jar"]
